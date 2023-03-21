@@ -9,4 +9,5 @@ project(
 
 # Add subdirectories with examples
 add_subdirectory(3.1_HelloName)
+add_subdirectory(3.6_Palindrome)
 add_subdirectory(3.6_PigLatin)
