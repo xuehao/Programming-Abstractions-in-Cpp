@@ -14,5 +14,5 @@ You can check the library here: [The Simple C++ Libraries](https://cppdoc.stickm
 
 |                       **Maze Puzzle**                       |
 | :---------------------------------------------------------: |
-| ![Maze Puzzle](examples/ch09-backtracking/9.1_Maze/maze_demo.gif) |
+| ![Maze Puzzle](ch09-backtracking/9.1_Maze/maze_demo.gif) |
 
