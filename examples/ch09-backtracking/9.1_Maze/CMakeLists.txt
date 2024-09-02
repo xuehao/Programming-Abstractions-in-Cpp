@@ -24,7 +24,8 @@ file(GLOB_RECURSE HEADER_FILES CONFIGURE_DEPENDS
      ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
 file(GLOB_RECURSE RESOURCE_FILES CONFIGURE_DEPENDS
      ${CMAKE_CURRENT_SOURCE_DIR}/res/*.maze)
-target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
+target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES} ${HEADER_FILES}
+                                       ${RESOURCE_FILES})
 
 # Add include directories
 target_include_directories(${PROJECT_NAME} PRIVATE include)
@@ -39,8 +40,11 @@ FetchContent_MakeAvailable(SimpleCxxLib)
 target_link_libraries(${PROJECT_NAME} PRIVATE SimpleCxxLib)
 
 # Copy Java backend
-file(COPY ${SimpleCxxLib_SOURCE_DIR}/java/spl.jar
-     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(
+  TARGET ${PROJECT_NAME}
+  POST_BUILD
+  COMMAND "${CMAKE_COMMAND}" -E copy ${SimpleCxxLib_BINARY_DIR}/java/spl.jar
+          ${CMAKE_CURRENT_BINARY_DIR})
 
 # Copy resource files
 file(COPY ${RESOURCE_FILES} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
