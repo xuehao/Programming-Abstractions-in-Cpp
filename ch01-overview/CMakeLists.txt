@@ -12,6 +12,3 @@ add_subdirectory(1.1_HelloWorld)
 add_subdirectory(1.3_PowersOfTwo)
 add_subdirectory(1.4_AddThreeNumbers)
 add_subdirectory(1.7_AddIntegerList)
-
-
-add_subdirectory(01_hello)
